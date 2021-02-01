@@ -17,6 +17,39 @@ package osi3;
 //
 message MotionRequest
 {
+    // The interface version used by the sender (simulation environment).
+    //
+    optional InterfaceVersion version = 1;
+
+    // The data timestamp of the simulation environment. Zero time is arbitrary
+    // but must be identical for all messages. Zero time does not need to
+    // coincide with the UNIX epoch. Recommended is the starting time point of
+    // the simulation.
+    //
+    // \note For sensor view data this timestamp coincides both with the
+    // notional simulation time the data applies to and the time it was sent
+    // (there is no inherent latency for sensor view data, as opposed to
+    // sensor data).
+    //
+    optional Timestamp timestamp = 2;
+
+	//
+	// Define the option that is used to specify the motion request.
+	// This must be set. Additionally, the field corresponding to the specified option must be set.
+	//
+	optional OutputOptions output_option = 3;
+
+	//
+	// Defines a desired state.
+	// If the output option is set to DESIRED_STATE, this must be provided.
+	//
+	optional DesiredState desired_state = 4;
+
+	//
+	// Defines a desired trajectory.
+	// If the output option is set to DESIRED_TRAJECTORY, this must be set.
+	//
+	optional Trajectory desired_trajectory = 5;
 
 	//	
 	// Define different options for HAD function ouput.
@@ -27,24 +60,6 @@ message MotionRequest
 		DESIRED_STATE = 0;
 		TRAJECTORY = 1;
 	}
-    
-	//
-	// Define the option that is used to specify the motion request.
-	// This must be set. Additionally, the field corresponding to the specified option must be set.
-	//
-        optional OutputOptions output_option = 1;
-	
-	//
-	// Defines a desired state.
-	// If the output option is set to DESIRED_STATE, this must be provided.
-	//
-	optional DesiredState desired_state = 2;
-	
-	//
-	// Defines a desired trajectory.
-	// If the output option is set to DESIRED_TRAJECTORY, this must be set.
-	//
-	optional Trajectory desired_trajectory = 3;
 
 	//
 	// \brief The desired state is calculated by the HAD function as a result of the motion planning stack.
@@ -73,9 +88,8 @@ message MotionRequest
 	    // intended acceleration to be reached in x, y, and z direction
 	    //
 	    optional Vector3d acceleration = 5;
-
 	}
-	
+
 	//
 	// \brief Defined trajectory desired by the HAD function. This trajectory is the result of the trajectory planning step
 	// in the HAD function. The task of the acutator management is to follow this trajectory as closely as possible.
@@ -88,5 +102,4 @@ message MotionRequest
 		//
 		repeated StatePoint trajectory_point = 1;
 	}
-
 }
