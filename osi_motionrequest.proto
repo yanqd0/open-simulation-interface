@@ -34,12 +34,12 @@ message MotionRequest
 	optional OutputOptions output_option = 3;
 	
 	// Defines a desired state.
-	// If the output option is set to DESIRED_STATE, this must be provided.
+	// If the output option is set to DESIRED_STATE, this field must be set.
 	//
 	optional DesiredState desired_state = 4;
 	
 	// Defines a desired trajectory.
-	// If the output option is set to DESIRED_TRAJECTORY, this must be set.
+	// If the output option is set to DESIRED_TRAJECTORY, this field must be set.
 	//
 	optional Trajectory desired_trajectory = 5;
 	
