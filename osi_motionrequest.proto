@@ -84,6 +84,7 @@ message MotionRequest
 		//
 		optional Vector3d acceleration = 5;
 	}
+	
 	// \brief Defined trajectory desired by the HAD function.
 	//
 	// This trajectory is the result of the trajectory planning step in the HAD function.
