@@ -26,45 +26,45 @@ message MotionRequest
 
     // The data timestamp of the simulation environment. A reference to \c Timestamp message.
     //
-	optional Timestamp timestamp = 2;
-	
-	// Define the option that is used to specify the motion request.
-	// This must be set. Additionally, the field corresponding to the specified option must be set.
-	//
-	optional OutputOptions output_option = 3;
-	
-	// Defines a desired state.
-	// If the output option is set to DESIRED_STATE, this field must be set.
-	//
-	optional DesiredState desired_state = 4;
-	
-	// Defines a desired trajectory.
-	// If the output option is set to DESIRED_TRAJECTORY, this field must be set.
-	//
-	optional Trajectory desired_trajectory = 5;
-	
-	// Define different options for HAD function ouput.
-	// Each option is corresponds to a field in the message.
-	//
-	enum OutputOptions
-	{
-		// Desired state calculated by the HAD function.
-		DESIRED_STATE = 0;
-		
-		// Desired trajectory calculated by the HAD function.
-		TRAJECTORY = 1;
-	}
-	
-	// \brief The desired state is calculated by the HAD function as a result of the motion planning stack.
-	//
-	// The actuator management is supposed to reach the desired state at the specified time.
-	//
-	message DesiredState
-	{
-		// A reference to \c Timestamp message.
+    optional Timestamp timestamp = 2;
+    
+    // Define the option that is used to specify the motion request.
+    // This must be set. Additionally, the field corresponding to the specified option must be set.
+    //
+    optional OutputOptions output_option = 3;
+    
+    // Defines a desired state.
+    // If the output option is set to DESIRED_STATE, this field must be set.
+    //
+    optional DesiredState desired_state = 4;
+    
+    // Defines a desired trajectory.
+    // If the output option is set to DESIRED_TRAJECTORY, this field must be set.
+    //
+    optional Trajectory desired_trajectory = 5;
+    
+    // Define different options for HAD function ouput.
+    // Each option is corresponds to a field in the message.
+    //
+    enum OutputOptions
+    {
+        // Desired state calculated by the HAD function.
+        DESIRED_STATE = 0;
+        // Desired trajectory calculated by the HAD function.
+        TRAJECTORY = 1;
+    }
+    
+    // \brief The desired state is calculated by the HAD function as a result of the motion planning stack.
+    //
+    // The actuator management is supposed to reach the desired state at the specified time.
+    //
+    message DesiredState
+    {
+        // A reference to \c Timestamp message.
 		//
 		optional Timestamp timestamp = 1;
-		// intended position to be reached in x, y, and z direction.
+		
+        // intended position to be reached in x, y, and z direction.
 		//
 		optional Vector3d position = 2;
 		
