@@ -61,28 +61,28 @@ message MotionRequest
     message DesiredState
     {
         // A reference to \c Timestamp message.
-	//
-	optional Timestamp timestamp = 1;
-	
-	// intended position to be reached in x, y, and z direction.
-	//
-	optional Vector3d position = 2;
-	
-	// intended orientation to be reached containing yaw, pitch and roll angle.
-	//
-	optional Orientation3d  orientation = 3;
-	
-	// intended velocity to be reached in x, y, and z direction.
-	//
-	// Unit: m/s
-	//
-	optional Vector3d velocity = 4;
-	
-	// intended acceleration to be reached in x, y, and z direction.
-	//
-	// Unit: m/s^2
-	//
-	optional Vector3d acceleration = 5;
+		//
+		optional Timestamp timestamp = 1;
+		
+		// intended position to be reached in x, y, and z direction.
+		//
+		optional Vector3d position = 2;
+		
+		// intended orientation to be reached containing yaw, pitch and roll angle.
+		//
+		optional Orientation3d  orientation = 3;
+		
+		// intended velocity to be reached in x, y, and z direction.
+		//
+		// Unit: m/s
+		//
+		optional Vector3d velocity = 4;
+		
+		// intended acceleration to be reached in x, y, and z direction.
+		//
+		// Unit: m/s^2
+		//
+		optional Vector3d acceleration = 5;
 	}
 	
 	// \brief Defined trajectory desired by the HAD function.
