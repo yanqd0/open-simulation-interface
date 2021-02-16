@@ -50,11 +50,11 @@ message MotionRequest
     {
         // Desired state calculated by the HAD function.
         //
-        DESIRED_STATE = 0;
+        OUTPUT_OPTIONS_DESIRED_STATE = 0;
 
         // Desired trajectory calculated by the HAD function.
         //
-        TRAJECTORY = 1;
+        OUTPUT_OPTIONS_TRAJECTORY = 1;
     }
 
     // \brief The desired state is calculated by the HAD function as a result of the motion planning stack.
@@ -86,7 +86,7 @@ message MotionRequest
         // Unit: m/s^2
         //
         optional Vector3d acceleration = 5;
-	}
+    }
 
     // \brief Defined trajectory desired by the HAD function.
     //
