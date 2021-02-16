@@ -27,33 +27,36 @@ message MotionRequest
     // The data timestamp of the simulation environment. A reference to \c Timestamp message.
     //
     optional Timestamp timestamp = 2;
-    
+
     // Define the option that is used to specify the motion request.
     // This must be set. Additionally, the field corresponding to the specified option must be set.
     //
     optional OutputOptions output_option = 3;
-    
+
     // Defines a desired state.
     // If the output option is set to DESIRED_STATE, this field must be set.
     //
     optional DesiredState desired_state = 4;
-    
+
     // Defines a desired trajectory.
     // If the output option is set to DESIRED_TRAJECTORY, this field must be set.
     //
     optional Trajectory desired_trajectory = 5;
-    
+
     // Define different options for HAD function ouput.
     // Each option is corresponds to a field in the message.
     //
     enum OutputOptions
     {
         // Desired state calculated by the HAD function.
+        //
         DESIRED_STATE = 0;
+
         // Desired trajectory calculated by the HAD function.
+        //
         TRAJECTORY = 1;
     }
-    
+
     // \brief The desired state is calculated by the HAD function as a result of the motion planning stack.
     //
     // The actuator management is supposed to reach the desired state at the specified time.
@@ -61,43 +64,43 @@ message MotionRequest
     message DesiredState
     {
         // A reference to \c Timestamp message.
-		//
-		optional Timestamp timestamp = 1;
-		
-		// intended position to be reached in x, y, and z direction.
-		//
-		optional Vector3d position = 2;
-		
-		// intended orientation to be reached containing yaw, pitch and roll angle.
-		//
-		optional Orientation3d  orientation = 3;
-		
-		// intended velocity to be reached in x, y, and z direction.
-		//
-		// Unit: m/s
-		//
-		optional Vector3d velocity = 4;
-		
-		// intended acceleration to be reached in x, y, and z direction.
-		//
-		// Unit: m/s^2
-		//
-		optional Vector3d acceleration = 5;
+        //
+        optional Timestamp timestamp = 1;
+
+        // intended position to be reached in x, y, and z direction.
+        //
+        optional Vector3d position = 2;
+
+        // intended orientation to be reached containing yaw, pitch and roll angle.
+        //
+        optional Orientation3d  orientation = 3;
+
+        // intended velocity to be reached in x, y, and z direction.
+        //
+        // Unit: m/s
+        //
+        optional Vector3d velocity = 4;
+
+        // intended acceleration to be reached in x, y, and z direction.
+        //
+        // Unit: m/s^2
+        //
+        optional Vector3d acceleration = 5;
 	}
-	
-	// \brief Defined trajectory desired by the HAD function.
-	//
-	// This trajectory is the result of the trajectory planning step in the HAD function.
-	// The task of the acutator management is to follow this trajectory as closely as possible.
-	// The timestamps inside the trajecotry must be defined in global simulation time.
-	//
-	// \note Trajectory is kept as a separate message for future extensions.
-	//
-	message Trajectory
-	{
-		// consists of intended position (x, y, and z) and orientation (yaw, pitch and roll) of intended state to be reached.
-		// A reference to \c StatePoint message.
-		//
-		repeated StatePoint trajectory_point = 1;
-	}
+
+    // \brief Defined trajectory desired by the HAD function.
+    //
+    // This trajectory is the result of the trajectory planning step in the HAD function.
+    // The task of the acutator management is to follow this trajectory as closely as possible.
+    // The timestamps inside the trajecotry must be defined in global simulation time.
+    //
+    // \note Trajectory is kept as a separate message for future extensions.
+    //
+    message Trajectory
+    {
+        // consists of intended position (x, y, and z) and orientation (yaw, pitch and roll) of intended state to be reached.
+        // A reference to \c StatePoint message.
+        //
+        repeated StatePoint trajectory_point = 1;
+    }
 }
