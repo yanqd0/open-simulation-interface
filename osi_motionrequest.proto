@@ -10,7 +10,7 @@ package osi3;
 //
 // \brief This message is intended as an interface between a HAD (highly automated driving) function and the actuator management.
 //
-// The HAD function can send either a desired future trajectory ore a desired future state.
+// The HAD function can send either a desired future trajectory or a desired future state.
 // The message can be defined by a additional variable.
 //
 // \note The coordinate system is defined as right-handed.
@@ -67,21 +67,21 @@ message MotionRequest
         //
         optional Timestamp timestamp = 1;
 
-        // intended position to be reached in x, y, and z direction.
+        // Intended position to be reached in x, y, and z direction.
         //
         optional Vector3d position = 2;
 
-        // intended orientation to be reached containing yaw, pitch and roll angle.
+        // Intended orientation to be reached containing yaw, pitch and roll angle.
         //
         optional Orientation3d  orientation = 3;
 
-        // intended velocity to be reached in x, y, and z direction.
+        // Intended velocity to be reached in x, y, and z direction.
         //
         // Unit: m/s
         //
         optional Vector3d velocity = 4;
 
-        // intended acceleration to be reached in x, y, and z direction.
+        // Intended acceleration to be reached in x, y, and z direction.
         //
         // Unit: m/s^2
         //
