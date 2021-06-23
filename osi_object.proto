@@ -60,7 +60,7 @@ message StationaryObject
         // The dominating color of the material of the structure.
         //
         optional Color color = 4;
-        
+
         // The IDs of the lanes that the object is assigned to.
         //
         // \note Might be multiple if the object streches over multiple lanes.
@@ -76,7 +76,6 @@ message StationaryObject
         // \note OSI uses singular instead of plural for repeated field names.
         //
         repeated double assigned_lane_percentage = 6;
-    }
 
         // Definition of object types.
         //
