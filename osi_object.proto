@@ -67,7 +67,7 @@ message StationaryObject
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated Identifier assigned_lane_id = 1;
+        repeated Identifier assigned_lane_id = 5;
 
         // Percentage value of the object width in the corresponding lane.
         //
@@ -75,7 +75,7 @@ message StationaryObject
         //
         // \note OSI uses singular instead of plural for repeated field names.
         //
-        repeated double assigned_lane_percentage = 2;
+        repeated double assigned_lane_percentage = 6;
     }
 
         // Definition of object types.
