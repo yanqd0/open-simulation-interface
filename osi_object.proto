@@ -40,32 +40,6 @@ message StationaryObject
     //
     optional string model_reference = 4;
 
-    // Specific information about the classification of stationary objects.
-    //
-    optional StationaryObjectClassification stationary_object_classification = 5;
-
-    //
-    // \brief Information for the classification of stationary objects.
-    //
-    message StationaryObjectClassification
-    {
-        // The IDs of the lanes that this object is assigned to.
-        //
-        // \note Might be multiple if the object streches over multiple lanes.
-        //
-        // \note OSI uses singular instead of plural for repeated field names.
-        //
-        repeated Identifier assigned_lane_id = 1;
-
-        // Percentage value of the object width in the corresponding lane.
-        //
-        // \note Might be multiple if the object streches over multiple lanes.
-        //
-        // \note OSI uses singular instead of plural for repeated field names.
-        //
-        repeated double assigned_lane_percentage = 2;
-    }
-
     //
     // \brief Classification data for a stationary object.
     //
@@ -86,6 +60,23 @@ message StationaryObject
         // The dominating color of the material of the structure.
         //
         optional Color color = 4;
+        
+        // The IDs of the lanes that the object is assigned to.
+        //
+        // \note Might be multiple if the object streches over multiple lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated Identifier assigned_lane_id = 1;
+
+        // Percentage value of the object width in the corresponding lane.
+        //
+        // \note Might be multiple if the object streches over multiple lanes.
+        //
+        // \note OSI uses singular instead of plural for repeated field names.
+        //
+        repeated double assigned_lane_percentage = 2;
+    }
 
         // Definition of object types.
         //
